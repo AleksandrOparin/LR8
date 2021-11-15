@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class String
   def palindrome?
     self == reverse
@@ -11,14 +13,13 @@ class Integer
 end
 
 class IndexController < ApplicationController
-  def input
-  end
+  def input; end
 
   def output
     @result = 0.upto(Integer(params[:InputNumber]))&.select { |number| number.palindrome? && (number**2).palindrome? }
   rescue ArgumentError
     @error = 'Некорректный ввод'
   rescue TypeError
-    @error = 'Пустая строка'
+    @error = 'Число не задано'
   end
 end

@@ -10,7 +10,7 @@ class IndexControllerTest < ActionDispatch::IntegrationTest
     get index_output_url
     assert_response :success
     assert_nil assigns[:result]
-    assert_equal 'Пустая строка', assigns[:error]
+    assert_equal 'Число не задано', assigns[:error]
   end
 
   test 'should get output with error message if not only digits supplied' do
